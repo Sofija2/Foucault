@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Маятник Фуко</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{% static 'pendulum/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="panel">
+            <h2>Карта</h2>
+            <div id="map"></div>
+            <div class="panel1">
+                <div class="params">
+                    <h3>Параметры</h3>
+                    <p>Широта: <span id="latitude">0</span>°</p>
+                    <p>Долгота: <span id="longitude">0</span>°</p>
+                    <p>Длина маятника: <input type="number" id="height" value="5" min="0.1" max="10"> м</p>
+                    <button id="start-btn">Запустить симуляцию</button>
+                </div>
+                <div class="info-panel">
+                    <p>Период обращения плоскости: <span id="period-value">0</span> часов</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel">
+            <h2>Визуализация</h2>
+            <div class="pendulum-container">
+                <div class="ceiling"></div>
+                <div class="string"></div>
+                <div class="bob"></div>
+            </div>
+            <h3>Траектория (вид сверху)</h3>
+            <canvas id="chart"></canvas>
+        </div>
+
+    </div>    
+        
+
+   
+    <script src="{% static 'pendulum/js/pendulum.js' %}"></script>
+</body>
+</html>
